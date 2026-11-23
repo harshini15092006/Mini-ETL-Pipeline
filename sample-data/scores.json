@@ -1,0 +1,17 @@
+[
+  { "student_id": "STU001", "subject": "Mathematics",  "score": "88",   "grade": "A",  "semester": "1" },
+  { "student_id": "STU002", "subject": "Physics",      "score": "76",   "grade": "B",  "semester": "1" },
+  { "student_id": "STU003", "subject": "Chemistry",    "score": "  91  ","grade": "A+", "semester": "1" },
+  { "student_id": "STU004", "subject": "mathematics",  "score": "63",   "grade": "C",  "semester": "2" },
+  { "student_id": "STU005", "subject": "PHYSICS",      "score": "",     "grade": "F",  "semester": "2" },
+  { "student_id": "STU006", "subject": "Chemistry",    "score": "49",   "grade": "F",  "semester": "2" },
+  { "student_id": "STU007", "subject": "mathematics",  "score": "95",   "grade": "A+", "semester": "1" },
+  { "student_id": "STU008", "subject": "PHYSICS",      "score": "72",   "grade": "B",  "semester": "2" },
+  { "student_id": "STU009", "subject": "Chemistry",    "score": "88",   "grade": "A",  "semester": "1" },
+  { "student_id": "STU010", "subject": "Mathematics",  "score": "41",   "grade": "F",  "semester": "2" },
+  { "student_id": "STU002", "subject": "Physics",      "score": "76",   "grade": "B",  "semester": "1" },
+  { "student_id": "STU011", "subject": "CHEMISTRY",    "score": "79",   "grade": "B",  "semester": "1" },
+  { "student_id": "STU012", "subject": "mathematics",  "score": "  84  ","grade": "A", "semester": "2" },
+  { "student_id": "STU013", "subject": "Physics",      "score": "",     "grade": null, "semester": "2" },
+  { "student_id": "STU014", "subject": "chemistry",    "score": "57",   "grade": "D",  "semester": "1" }
+]

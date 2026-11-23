@@ -1,0 +1,21 @@
+student_id,name,department,marks,email,phone
+STU001,ananya sharma,Computer Science,92,ananya@example.com,9876543210
+STU002,ROHAN MEHTA,Electronics,85,rohan@example.com,9876543211
+STU003,Priya Nair,Mechanical,78,priya@example.com,9876543212
+STU004,kiran reddy,Civil,65,kiran@example.com,9876543213
+STU005,Sana Bhat,Computer Science,59,sana@example.com,9876543214
+STU006,ADITYA SINGH,Electronics,43,aditya@example.com,9876543215
+STU007,meera pillai,Mechanical,90,meera@example.com,9876543216
+STU008,Farhan Qureshi,Civil,  77  ,farhan@example.com,9876543217
+STU009,DIVYA KRISHNAN,Computer Science,95,divya@example.com,9876543218
+STU010,vikram joshi,Electronics,,vikram@example.com,9876543219
+STU011,Lakshmi Devi,Civil,71,lakshmi@example.com,9876543220
+STU012,ARJUN PATEL,Mechanical,86,arjun@example.com,9876543221
+STU013,sneha iyer,Computer Science,62,sneha@example.com,9876543222
+STU014,Rahul Verma,Electronics,55,rahul@example.com,9876543223
+STU015,NIDHI CHAUDHARY,Mechanical,38,nidhi@example.com,9876543224
+STU001,ananya sharma,Computer Science,92,ananya@example.com,9876543210
+STU016,  amit shah  ,Civil,74,amit@example.com,9876543225
+STU017,POOJA DESAI,Computer Science,,pooja@example.com,9876543226
+STU018,ravi kumar,Electronics,81,ravi@example.com,9876543227
+STU019,Kavya Reddy,Mechanical,  68  ,kavya@example.com,9876543228
