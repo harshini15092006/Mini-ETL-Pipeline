@@ -32,32 +32,38 @@ Data Preview
 ↓
 Export Processed Data
 
-Technology Stack
-Technology Purpose
-React 18 Frontend framework
-JavaScript Application logic
-PapaParse CSV/TSV parsing
-SheetJS (xlsx) Excel processing
-CSS3 Styling and responsive UI
-Project Structure
-text
+## Technology Stack
+
+| Technology     | Purpose                   |
+| -------------- | ------------------------- |
+| React 18       | Frontend framework        |
+| JavaScript     | Application logic         |
+| PapaParse      | CSV/TSV parsing           |
+| SheetJS (xlsx) | Excel processing          |
+| CSS3           | Styling and responsive UI |
+
+## Project Structure
+
+```text
 Mini-ETL-Pipeline/
 ├── public/
 ├── src/
-│ ├── components/
-│ │ ├── UploadStep.jsx
-│ │ ├── MergeStep.jsx
-│ │ ├── QualityStep.jsx
-│ │ ├── PreviewStep.jsx
-│ │ └── DownloadStep.jsx
-│ ├── styles/
-│ ├── utils/
-│ │ └── dataUtils.js
-│ ├── App.jsx
-│ └── index.js
+│   ├── components/
+│   │   ├── UploadStep.jsx
+│   │   ├── MergeStep.jsx
+│   │   ├── QualityStep.jsx
+│   │   ├── PreviewStep.jsx
+│   │   └── DownloadStep.jsx
+│   ├── styles/
+│   │   └── global.css
+│   ├── utils/
+│   │   └── dataUtils.js
+│   ├── App.jsx
+│   └── index.js
 ├── sample-data/
 ├── package.json
 └── README.md
+```
 
 Getting Started
 
