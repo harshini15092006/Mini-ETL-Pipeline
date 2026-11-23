@@ -1,219 +1,250 @@
-# ⚡ Multi-Format ETL Data Merger & Quality Processor
+Multi-Format ETL Data Merger & Quality Processor
 
-A production-grade React frontend for merging multi-format data files (CSV, TSV, JSON, Excel)
-and running a full data quality pipeline — all in the browser with zero backend required.
+A browser-based ETL application for merging heterogeneous datasets, standardizing schemas, and improving data quality through an interactive processing pipeline.
 
----
+<p align="center">
+<strong>React 18 · JavaScript · PapaParse · SheetJS · Client-Side ETL</strong>
+</p>
 
-## 📁 Project Structure
+Overview
 
-```
-ETL_DataMerger/
+The Multi-Format ETL Data Merger & Quality Processor is a React-based data processing application designed to simplify the Extract, Transform, and Load (ETL) workflow.
+
+It enables users to upload datasets in multiple formats, automatically detect and reconcile schemas, merge records, perform data quality operations, preview processed results, and export the final dataset in their preferred format.
+
+The entire processing workflow runs directly in the browser, eliminating the need for backend infrastructure or server-side data processing.
+
+Key Highlights
+Multi-format data ingestion supporting CSV, TSV, JSON, XLSX, and XLS.
+Automatic schema detection and column mapping.
+Dataset merging with column mismatch identification.
+Data cleaning, normalization, and validation.
+Interactive data preview with search, sorting, and pagination.
+Export processed datasets into multiple formats.
+Responsive interface with light and dark themes.
+Application Workflow
+
+The application follows a five-stage ETL pipeline:
+
+Stage Process Description
+01 Extract Upload and parse multiple data files
+02 Transform Detect schemas and merge datasets
+03 Data Quality Clean, standardize, and validate records
+04 Preview Inspect processed data interactively
+05 Load Export the final dataset in the required format
+Core Features
+
+1. Multi-Format Data Ingestion
+   Upload multiple files simultaneously.
+   Drag-and-drop and file browser support.
+   Supports CSV, TSV, JSON, XLSX, and XLS.
+   File format validation and parsing error handling.
+   Individual file statistics, including row and column counts.
+   Remove individual files before processing.
+2. Intelligent Schema Detection & Data Merging
+   Automatically identifies columns across uploaded datasets.
+   Detects common and mismatched columns.
+   Visualizes column overlap between datasets.
+   Interactive column mapping and renaming.
+   Combines heterogeneous datasets into a unified structure.
+   Displays merged row and column statistics.
+3. Data Quality & Transformation
+
+Implements a configurable data quality pipeline with the following operations:
+
+Operation Description
+Duplicate Removal Identifies and removes exact duplicate records
+Missing Value Handling Fills missing values, removes incomplete rows, or retains them
+Whitespace Trimming Removes unnecessary leading and trailing spaces
+Case Standardization Converts text into Title Case, UPPERCASE, or lowercase
+Type Conversion Converts numeric strings into numeric values
+Data Validation Identifies invalid numeric values
+Quality Reporting Generates metrics describing data quality improvements
+Correction Tracking Tracks cell-level transformations 4. Interactive Data Preview
+Responsive tabular data visualization.
+Pagination with 10 records per page.
+Full-text search across available columns.
+Interactive ascending and descending sorting.
+Visual highlighting of transformed cells.
+Row and column statistics.
+Preview of raw merged data and quality-processed data. 5. Flexible Data Export
+
+Export the processed dataset in:
+
+CSV
+TSV
+JSON
+Excel (XLSX)
+
+Additional capabilities:
+
+Live output preview.
+One-click file download.
+Format-specific export options.
+Guidance for selecting an appropriate output format. 6. User Interface
+Responsive design for desktop and mobile.
+Light and dark theme support.
+Pipeline progress indicators.
+Reusable UI components.
+Smooth transitions and interactive controls.
+Clean industrial-tech visual design.
+Technology Stack
+Technology Purpose
+React 18.2 Component-based frontend development
+JavaScript (ES6+) ETL processing and application logic
+React Scripts 5.0 Development server and production build
+PapaParse 5.4 CSV and TSV parsing
+SheetJS (xlsx) 0.18 Excel file processing and export
+CSS3 Responsive styling and theme management
+Project Architecture
+text
+Mini-ETL-Pipeline/
+│
 ├── public/
-│   └── index.html              ← HTML shell
+│ └── index.html
+│
 ├── src/
-│   ├── index.js                ← React entry point
-│   ├── App.jsx                 ← Root component (state + layout)
-│   ├── styles/
-│   │   └── global.css          ← Design system (CSS variables, all styles)
-│   ├── components/
-│   │   ├── UI.jsx              ← Shared UI primitives (Badge, Alert, StatCard…)
-│   │   ├── Stepper.jsx         ← Step navigation bar
-│   │   ├── UploadStep.jsx      ← Step 1: File upload & parsing
-│   │   ├── MergeStep.jsx       ← Step 2: Schema detection & merge
-│   │   ├── QualityStep.jsx     ← Step 3: Data quality processing
-│   │   ├── PreviewStep.jsx     ← Step 4: Table preview with search/sort/pagination
-│   │   └── DownloadStep.jsx    ← Step 5: Format selection & download
-│   └── utils/
-│       └── dataUtils.js        ← All ETL logic (parse, merge, quality, download)
+│ ├── components/
+│ │ ├── UI.jsx
+│ │ ├── Stepper.jsx
+│ │ ├── UploadStep.jsx
+│ │ ├── MergeStep.jsx
+│ │ ├── QualityStep.jsx
+│ │ ├── PreviewStep.jsx
+│ │ └── DownloadStep.jsx
+│ │
+│ ├── styles/
+│ │ └── global.css
+│ │
+│ ├── utils/
+│ │ └── dataUtils.js
+│ │
+│ ├── App.jsx
+│ └── index.js
+│
 ├── sample-data/
-│   ├── students.csv            ← Test CSV (20 rows, duplicates + nulls + casing)
-│   ├── scores.json             ← Test JSON (15 rows, mixed case + nulls)
-│   └── departments.tsv         ← Test TSV (10 rows, whitespace + missing values)
-├── .vscode/
-│   ├── settings.json           ← Editor config (format on save, emmet)
-│   ├── extensions.json         ← Recommended extensions
-│   └── launch.json             ← Chrome debug config
-├── package.json                ← Dependencies & scripts
-└── README.md                   ← This file
-```
+│ ├── students.csv
+│ ├── scores.json
+│ └── departments.tsv
+│
+├── .gitignore
+├── package.json
+├── package-lock.json
+└── README.md
 
----
+Code Organization
+App.jsx: Manages application state, pipeline navigation, and component integration.
+components/: Contains modular components for each ETL processing stage.
+dataUtils.js: Centralizes data parsing, merging, quality processing, and export operations.
+global.css: Defines application styling, design variables, and theme support.
+sample-data/: Provides sample datasets for testing the complete workflow.
+Getting Started
+Prerequisites
 
-## 🚀 Quick Start in VS Code
+Ensure the following software is installed:
 
-### Prerequisites
-- **Node.js** v16 or higher → https://nodejs.org
-- **VS Code** → https://code.visualstudio.com
+Node.js (v16 or later)
+npm
+Visual Studio Code (recommended)
 
-### Steps
+1. Clone the Repository
+   bash
+   git clone https://github.com/harshini15092006/Mini-ETL-Pipeline.git
 
-**1. Open the project in VS Code**
-```
-File → Open Folder → select ETL_DataMerger/
-```
+2. Navigate to the Project Directory
+   bash
+   cd Mini-ETL-Pipeline
 
-**2. Install dependencies**
+3. Install Dependencies
+   bash
+   npm install
 
-Open the integrated terminal (`Ctrl+`` ` `` ` or `View → Terminal`) and run:
-```bash
-npm install
-```
-This installs React, xlsx, papaparse, and react-scripts (~2-3 minutes first time).
+4. Start the Development Server
+   bash
+   npm start
 
-**3. Start the development server**
-```bash
-npm start
-```
+Open your browser and navigate to:
 
-The app opens automatically at **http://localhost:3000** 🎉
+text
+http://localhost:3000
 
----
+The application will run locally in your browser.
 
-## 📦 Build for Production
+Testing with Sample Datasets
 
-```bash
+The repository includes three sample datasets containing different data quality issues.
+
+Dataset Format Sample Data Characteristics
+students.csv CSV Duplicate records, missing values, inconsistent casing, whitespace
+scores.json JSON Missing grades, duplicate records, inconsistent subject names
+departments.tsv TSV Missing department information, whitespace, inconsistent casing
+Recommended Testing Workflow
+Upload all three sample datasets.
+Review the detected schemas and column mismatches.
+Configure column mappings where necessary.
+Merge the uploaded datasets.
+Apply the available data quality operations.
+Inspect the quality report and processed records.
+Search, sort, and preview the resulting dataset.
+Export the final dataset as CSV, TSV, JSON, or Excel.
+Production Build
+
+Generate an optimized production build using:
+
+bash
 npm run build
-```
 
-Creates an optimized production build in the `build/` folder.
-Deploy the `build/` folder to any static host (Netlify, Vercel, GitHub Pages).
+The optimized application will be generated in the build/ directory.
 
----
+Since the application is browser-based, the production build can be deployed to static hosting platforms such as:
 
-## 🧩 Features
+Vercel
+Netlify
+GitHub Pages
+Backend Integration
 
-### 📂 Step 1 — File Upload
-- ✅ Drag & drop or click-to-browse
-- ✅ Multiple file support (mix formats freely)
-- ✅ Supported: `.csv` `.tsv` `.json` `.xlsx` `.xls`
-- ✅ Real-time file parsing with progress indicator
-- ✅ Format validation with clear error messages
-- ✅ Per-file row/column stats
-- ✅ Remove individual files
+The current application performs data processing entirely on the client side.
 
-### 🔀 Step 2 — Merge Configuration
-- ✅ Automatic schema detection from all files
-- ✅ Color-coded column overlap visualization
-- ✅ Column mismatch warnings with count
-- ✅ Interactive column mapping UI (rename to unify)
-- ✅ Animated merge with progress bars
-- ✅ Row/column count after merge
+It can be extended to support backend-based ETL processing through REST APIs.
 
-### 🧹 Step 3 — Data Quality Processing
-- ✅ Remove exact duplicate rows
-- ✅ Missing values: fill with default OR drop rows OR keep
-- ✅ Trim leading/trailing whitespace from all strings
-- ✅ Text case standardization (Title / UPPER / lower)
-- ✅ Numeric type coercion (strings → numbers)
-- ✅ Numeric field validation (flag non-numeric)
-- ✅ Detailed quality report with 6 metrics
-- ✅ Cell-level correction tracking
+Potential API architecture:
 
-### 📊 Step 4 — Data Preview
-- ✅ Responsive paginated table (10 rows/page)
-- ✅ Live full-text search across all columns
-- ✅ Click-to-sort on any column (toggle asc/desc)
-- ✅ Color-coded cell highlights (filled/trimmed/cased/typed)
-- ✅ Row count, column count display
-- ✅ Shows raw merged data if quality not yet run
+HTTP Method Endpoint Responsibility
+POST /api/upload Upload and extract datasets
+POST /api/merge Merge datasets
+POST /api/quality Execute data quality operations
+GET /api/download/:format Export processed datasets
 
-### ⬇ Step 5 — Download
-- ✅ Format selector: CSV / TSV / JSON / Excel
-- ✅ Live output preview (first 3 rows)
-- ✅ One-click download in selected format
-- ✅ Format tips and use-case guidance
+A backend implementation could introduce centralized processing, persistent storage, authentication, and support for larger datasets.
 
-### 🎨 UI
-- ✅ Light / Dark mode toggle
-- ✅ Live pipeline status in header
-- ✅ Responsive layout (mobile & desktop)
-- ✅ Smooth animations and transitions
-- ✅ Industrial-tech aesthetic
+Future Enhancements
 
----
+Potential improvements to extend the application:
 
-## 🛠 Technology Stack
+Backend integration using Python and FastAPI.
+Database connectivity with PostgreSQL or MySQL.
+Automated data quality scoring.
+Advanced schema matching and conflict resolution.
+Support for larger datasets through optimized processing.
+ETL job history and execution monitoring.
+Automated data profiling and validation rules.
+Unit and integration testing.
+Engineering Highlights
 
-| Technology | Version | Usage |
-|------------|---------|-------|
-| React | 18.2 | UI framework |
-| react-scripts (CRA) | 5.0 | Build toolchain |
-| xlsx (SheetJS) | 0.18 | Excel read/write |
-| papaparse | 5.4 | CSV/TSV parsing |
-| CSS Custom Properties | - | Theming & dark mode |
+This project demonstrates practical implementation of:
 
----
+ETL pipeline design and workflow orchestration.
+Multi-format data ingestion and parsing.
+Schema reconciliation and data integration.
+Data cleansing and normalization.
+Data validation and quality monitoring.
+Modular React architecture.
+Client-side file processing.
+Structured data export and transformation.
+License
 
-## 🔌 Backend Integration Guide
+This project is intended for educational and portfolio demonstration purposes.
 
-The app works fully in-browser using mock data. To connect a real backend:
+Developed by Harshini
 
-**In `src/utils/dataUtils.js`**, replace `parseFile()` with an API call:
-
-```js
-export async function parseFile(file) {
-  const formData = new FormData();
-  formData.append('file', file);
-  const response = await fetch('/api/upload', {
-    method: 'POST',
-    body: formData,
-  });
-  return response.json(); // expects array of row objects
-}
-```
-
-**Expected API endpoints:**
-```
-POST   /api/upload            → { data: [{...}, ...] }
-POST   /api/merge             → { data: [{...}, ...] }
-POST   /api/quality           → { data: [{...}, ...], report: {...} }
-GET    /api/download/:format  → File binary stream
-```
-
----
-
-## 🧪 Testing with Sample Data
-
-Three sample files in `sample-data/` are pre-loaded with quality issues:
-
-| File | Issues | Purpose |
-|------|--------|---------|
-| `students.csv` | Duplicate row, nulls, mixed case, whitespace | Main student data |
-| `scores.json` | Duplicate row, null grades, mixed case subjects | Exam scores |
-| `departments.tsv` | Missing HOD name, missing count, casing | Department info |
-
-**Upload all 3 together** to test the full pipeline including column mismatch handling.
-
----
-
-## ⌨️ VS Code Keyboard Shortcuts
-
-| Action | Shortcut |
-|--------|---------|
-| Open Terminal | Ctrl+` |
-| Run `npm start` | Type in terminal |
-| Format file | Alt+Shift+F |
-| Go to file | Ctrl+P |
-| Find in project | Ctrl+Shift+F |
-
----
-
-## 🐛 Troubleshooting
-
-**"npm install" fails**
-→ Make sure Node.js v16+ is installed: `node --version`
-
-**Port 3000 already in use**
-→ Run on different port: `PORT=3001 npm start` (Mac/Linux) or set in `.env`
-
-**Excel file won't parse**
-→ Ensure the file is `.xlsx` not `.xls` (older format). Use "Save As" in Excel to convert.
-
-**App shows white screen**
-→ Open browser console (F12) and check for errors. Usually a missing `npm install`.
-
----
-
-Built with React · Zero backend required · 100% browser-based ETL
-"# Mini-ETL-Pipeline" 
+Building practical data engineering solutions with modern frontend technologies.
